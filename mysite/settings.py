@@ -25,7 +25,7 @@ SECRET_KEY = 'shxop(9cssrz%nqd23*-_)i7h8=iyeqv^nb-ri91hrtrp057am'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['todo-list-web-app-taylortyg.c9users.io']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'todo_list.apps.TodoListConfig'
 ]
 
 MIDDLEWARE = [

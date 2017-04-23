@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}To Do List{% endblock %}</title>
+</head>
+<body>
+    <header id="header">
+        <div id="logo">
+            <a href="">To Do List.</a>  
+        </div>
+    </header>
+    <div id="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
