@@ -1,0 +1,15 @@
+{% extends "todo_list/base.html" %}
+
+{% block title %}Create New To Do List{% endblock %}
+
+{% block content %}
+<h1>Choose a Title for Your To Do List</h1>
+{% if error_message %}<p class="error_message"><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'todo_list:createList' %}" method="post">
+{% csrf_token %}
+<label for="list_title">Title</label>
+<input type="text" name="list_title" id="list_title" />
+<input type="submit" value="Create" />
+</form>
+
+{% endblock %}
