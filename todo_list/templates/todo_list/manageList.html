@@ -4,7 +4,13 @@
 
 {% block content %}
 <h1>{{todoList.title}}</h1>
+<form id="manage_list_form" action="{% url 'todo_list:updateList' %}" method="post">
+{% csrf_token %}
 {% for task in todoList.task_set.all %}
-    <li>{{task.task_text}} {{task.priority}}</li>
+    <input type="checkbox" name="task_completed" value="{{task.id}}">
+    <div>{{task.task_text}}</div>
+    <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
+    <li>{{task.task_text}} {{task.priority}} TASK#{{task.id}}</li>
 {% endfor %}
+</form>
 {% endblock %}

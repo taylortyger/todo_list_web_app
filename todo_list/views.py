@@ -52,5 +52,6 @@ def manageList(request, list_id):
     todoList = get_object_or_404(ToDoList, pk=list_id)
     return render(request, 'todo_list/manageList.html', {'todoList': todoList})
     
-    
+def updateList(request):
+    return HttpResponse("hi")
 
