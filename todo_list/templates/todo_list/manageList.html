@@ -1,8 +1,10 @@
 {% extends "todo_list/base.html" %}
 
-{% block title %}{{todoList.title}}{% endblock %}
+{% block title %}{{ todoList.title }}{% endblock %}
 
 {% block content %}
 <h1>{{todoList.title}}</h1>
-
+{% for task in todoList.task_set.all %}
+    <li>{{task.task_text}} {{task.priority}}</li>
+{% endfor %}
 {% endblock %}

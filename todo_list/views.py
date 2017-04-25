@@ -22,11 +22,12 @@ def index(request):
 def newList(request):
     return render(request, 'todo_list/newList.html', {})
 
-#---------------------------------------------------------
+#-------------------------------------------------------------------------------
 #
-#   Creates a new to do list in the database
+#   Creates a new to do list in the database based on information sent from 
+#   newList view.
 #
-#---------------------------------------------------------   
+#-------------------------------------------------------------------------------
 def createList(request):
     listTitle = request.POST['list_title']
     
@@ -44,7 +45,7 @@ def createList(request):
 
 #-------------------------------------------------------------------
 #
-#   view for viewing, editing, and interacting with a to do list
+#   Page for viewing, editing, and interacting with a to do list
 #
 #------------------------------------------------------------------- 
 def manageList(request, list_id):
