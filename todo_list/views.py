@@ -59,6 +59,8 @@ def addNewTask(request, list_id):
     todoList = get_object_or_404(ToDoList, pk=list_id)
     newTask_text = request.POST['newtask_text']
     newTask_priority = request.POST['newtask_priority']
+    if(newTask_priority == ""):
+        newTask_priority = 0
     if(newTask_text != ""):
         todoList.task_set.create(task_text=newTask_text, priority=newTask_priority)
         return HttpResponseRedirect(reverse('todo_list:manageList', args=(todoList.id,)))
