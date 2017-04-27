@@ -21,6 +21,7 @@ class Task(models.Model):
     task_text = models.CharField(max_length=300)
     completed = models.BooleanField(default=False)
     priority = models.IntegerField()
+    
     def __str__(self):
         return self.task_text
     
