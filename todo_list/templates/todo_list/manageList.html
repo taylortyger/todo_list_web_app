@@ -4,13 +4,27 @@
 
 {% block content %}
 <h1>{{todoList.title}}</h1>
+
+{% if error_message %}<p class="error_message"><strong>{{ error_message }}</strong></p>{% endif %}
+<form id="add_new_task" action="{% url 'todo_list:addNewTask' todoList.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="newtask_text" placeholder="Add New Task...">
+    {% if todoList.task_set.last %}
+        <input type="hidden" name="newtask_priority" value="{{ todoList.task_set.last.priority|add:1 }}">
+    {% else %}
+        <input type="hidden" name="newtask_priority" value="0">
+    {% endif %}
+    <input type="submit" value="Add">
+</form>
+
 <form id="manage_list_form" action="{% url 'todo_list:updateList' %}" method="post">
 {% csrf_token %}
 {% for task in todoList.task_set.all %}
-    <input type="checkbox" name="task_completed" value="{{task.id}}">
-    <div>{{task.task_text}}</div>
+<div>
+    <input style="display: inline;" type="checkbox" name="task_completed" value="{{task.id}}">
+    <div style="display: inline;">{{task.task_text}}</div>
     <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
-    <li>{{task.task_text}} {{task.priority}} TASK#{{task.id}}</li>
+</div>
 {% endfor %}
 </form>
 {% endblock %}

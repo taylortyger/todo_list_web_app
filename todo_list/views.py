@@ -54,4 +54,16 @@ def manageList(request, list_id):
     
 def updateList(request):
     return HttpResponse("hi")
-
+    
+def addNewTask(request, list_id):
+    todoList = get_object_or_404(ToDoList, pk=list_id)
+    newTask_text = request.POST['newtask_text']
+    newTask_priority = request.POST['newtask_priority']
+    if(newTask_text != ""):
+        todoList.task_set.create(task_text=newTask_text, priority=newTask_priority)
+        return HttpResponseRedirect(reverse('todo_list:manageList', args=(todoList.id,)))
+    else:
+        return render(request, 'todo_list/manageList.html', {
+            'error_message': "Invalid Task Text.",
+            'todoList': todoList
+        })
