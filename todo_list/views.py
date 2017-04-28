@@ -51,10 +51,34 @@ def createList(request):
 def manageList(request, list_id):
     todoList = get_object_or_404(ToDoList, pk=list_id)
     return render(request, 'todo_list/manageList.html', {'todoList': todoList})
+
+#-------------------------------------------------------------------
+#
+#   Marks tasks as completed based on POST data sent from manageList
+#
+#------------------------------------------------------------------- 
+def updateList(request, list_id):
+    todoList = get_object_or_404(ToDoList, pk=list_id)
     
-def updateList(request):
-    return HttpResponse("hi")
+    # mark newly completed tasks as complete in the database
+    completedTasks = request.POST.getlist('task_completed')
+    numErrors = 0
+    for taskID in completedTasks:
+        try:
+            currentTask = todoList.task_set.get(pk=taskID)
+        except (KeyError, Task.DoesNotExist):
+            numErrors += 1
+        else:
+            currentTask.completed=True
+            currentTask.save()
+    return HttpResponseRedirect(reverse('todo_list:manageList', args=(todoList.id,)))
     
+#-------------------------------------------------------------------
+#
+#   Add's a new task to the to do list based on POST request from 
+#   manage list view. 
+#
+#-------------------------------------------------------------------
 def addNewTask(request, list_id):
     todoList = get_object_or_404(ToDoList, pk=list_id)
     newTask_text = request.POST['newtask_text']

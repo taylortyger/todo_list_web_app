@@ -6,19 +6,20 @@
 <h1>{{todoList.title}}</h1>
 
 {% if error_message %}<p class="error_message"><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form id="manage_list_form" action="{% url 'todo_list:updateList' %}" method="post">
-{% csrf_token %}
-
-{% for task in todoList.getCurrentTasks %}
-    <div task_id="{{ task.id }}" currenttask="true">
-        <input style="display: inline;" type="checkbox" name="task_completed" value="{{ task.id }}">
-        <div style="display: inline;">{{task.task_text}}</div>
-        <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
-    </div>
-{% endfor %}
-
-</form>
+<div id="task_list">
+    <form id="manage_list_form" action="{% url 'todo_list:updateList' todoList.id %}" method="post">
+    {% csrf_token %}
+    
+    {% for task in todoList.getCurrentTasks %}
+        <div task_id="{{ task.id }}">
+            <input class="complete_task_check" style="display: inline;" type="checkbox" name="task_completed" value="{{ task.id }}" onclick="addListNotifications()">
+            <div style="display: inline;">{{task.task_text}}</div>
+            <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
+        </div>
+    {% endfor %}
+    <input id="updateList_submit" type="submit" value="Save Completed Task(s)" style="display: none;">
+    </form>
+</div>
 
 <form id="add_new_task" action="{% url 'todo_list:addNewTask' todoList.id %}" method="post">
     {% csrf_token %}
