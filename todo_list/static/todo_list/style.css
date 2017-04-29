@@ -1,0 +1,85 @@
+html 
+{
+    width: 100%;
+    height: 100%;
+}
+
+body 
+{
+    margin: 0px;
+    background: white url("images/background.jpg") no-repeat right bottom;
+    font-family: 'Raleway';
+}
+
+
+#logo
+{
+    display: block;
+    text-align: center;
+}
+#logo a
+{
+    font-family: 'Bree Serif', Times, serif;
+    color: #444;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+#logo a:visited
+{
+    color: #444;
+}
+
+.red
+{
+    color: red;
+}
+
+#header
+{
+    width: 100%;
+    background: white;
+}
+
+.section
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: white;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.section-content
+{
+    margin: 20px;
+    overflow: auto;
+}
+
+
+.error_message
+{
+    color: red;
+}
+
+input
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box; 
+    padding: 10px;
+}
+
+.newtask_text_wrapper
+{
+    width: 90%;
+    display: inline-block;
+}
+
+.newtask_text_wrapper input
+{
+    width: 100%;
+}
