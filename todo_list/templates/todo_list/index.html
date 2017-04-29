@@ -3,9 +3,11 @@
 {% block title %}To Do List | Home{% endblock %}
 
 {% block content %}
-
-<div class="section">
-    <p><a href="{% url 'todo_list:new' %}">Create a To Do List</a></p>
+<div class="section fitscreen main-bg">
+    <div class="home-cta center">
+        <h1>A Simple to Do List Application</h1>
+        <a class="big-btn" href="{% url 'todo_list:new' %}">Create a To Do List</a>
+    </div>
 </div>
 
 
