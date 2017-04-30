@@ -19,7 +19,12 @@ function addListNotifications()
     if(numUnsavedTasks > 0)
     {
         document.getElementById("updateList_submit").style.display = 'block';
-        document.getElementById("save_changes_info").textContent = "You have (" + numUnsavedTasks + ") unsaved changes to your To Do List. Please save now!";
+        var message = "You have unsaved changes to your To Do List ("+ numUnsavedTasks + " tasks completed). Please save your changes now!";
+        if(numUnsavedTasks == 1)
+        {
+            message = "You have unsaved changes to your To Do List ("+ numUnsavedTasks + " task completed). Please save your changes now!";
+        }
+        document.getElementById("save_changes_info").textContent = message;
     }
     else
     {
@@ -39,6 +44,5 @@ function hideOrShowCompTasks()
     }
     document.getElementById("completed_tasks_list").classList.toggle('hide_list'); 
 }
-
 
 document.getElementById("show_tasks_button").addEventListener("click", hideOrShowCompTasks, false);

@@ -1,0 +1,18 @@
+{% extends "todo_list/base.html" %}
+
+{% block title %}Edit Task | {{ todoList.title }}{% endblock %}
+
+{% block content %}
+<div class="section">
+    <h1>Edit Task</h1>
+    <p>List: {{ todoList.title }}</p>
+    <form id="edit_task" action="{% url 'todo_list:updateTask' todoList.id currentTask.id %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="fullwidth_text_wrapper edit_task_wrapper">
+            <input type="text" name="edit_task_text" value="{{ currentTask.task_text }}" autofocus="autofocus" onFocus="this.select()">
+        </div>
+        <input class="small-btn right_submit" type="submit" value="Save">
+    </form>
+    <a class="cancel_edit small-btn" href="{% url 'todo_list:manageList' todoList.id %}">Cancel</a>
+</div>
+{% endblock %}

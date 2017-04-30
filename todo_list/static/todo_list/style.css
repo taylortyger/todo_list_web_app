@@ -222,6 +222,13 @@ input[type=submit]
     display: inline;
 }
 
+.task_item.completed
+{
+    text-decoration: line-through;
+    color: #AAA;
+}
+
+
 #updateList_submit
 {
     border: 1px solid #1CA648;
@@ -254,4 +261,66 @@ input[type=submit]
 .hide_list
 {
     display: none;
+}
+
+.right_icon
+{
+    float: right;
+}
+
+a.right_icon, a.title_edit.edit_icon
+{
+    width: 18px;
+    height: 18px;
+    background-size: 18px !important;
+    background-repeat: no-repeat !important;
+    display: inline-block;
+}
+
+a.delete_icon
+{
+    background: url('images/delete_light.png');
+}
+
+a.delete_icon:hover
+{
+    background: url('images/delete_dark.png');
+}
+
+a.edit_icon, a.title_edit
+{
+    background: url('images/edit_light.png');
+    margin-right: 30px;
+}
+
+a.right_icon.edit_icon:hover, a.title_edit:hover
+{
+    background: url('images/edit_dark.png');
+}
+
+.title_edit
+{
+    margin-left: 20px;
+}
+
+.cancel_edit
+{
+    float: right;
+    background: #BBB;
+    margin-right: 10px;
+}
+
+.cancel_edit:hover
+{
+    background: darkred;
+}
+
+.edit_task_wrapper
+{
+    margin-bottom: 10px;
+}
+
+#edit_title input[type=text]
+{
+    font-size: 20px;
 }

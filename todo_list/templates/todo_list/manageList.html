@@ -2,9 +2,11 @@
 
 {% block title %}{{ todoList.title }}{% endblock %}
 
+{% load staticfiles %}
+
 {% block content %}
 <div class="section">
-    <h1>{{todoList.title}}</h1>
+    <h1>{{todoList.title}}<a class="title_edit edit_icon" href="{% url 'todo_list:editTitle' todoList.id %}"></a></h1>
     
     {% if error_message %}<p class="error_message"><strong>{{ error_message }}</strong></p>{% endif %}
     <div id="task_list">
@@ -15,9 +17,12 @@
             <div class="task_item" task_id="{{ task.id }}">
                 <input class="complete_task_check" type="checkbox" name="task_completed" value="{{ task.id }}" onclick="addListNotifications()">
                 <div>{{task.task_text}}</div>
+                <a href="{% url 'todo_list:deleteTask' todoList.id task.id %}" class="right_icon delete_icon" onclick="return confirm('Are you sure you want to delete this task?');"></a>
+                <a href="{% url 'todo_list:editTask' todoList.id task.id %}" class="right_icon edit_icon"></a>
                 <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
             </div>
         {% endfor %}
+        
         <div id="updateList_submit" style="display: none;">
             <p id="save_changes_info">You have unsaved changes to your To Do List. Please save now!</p>
             <input class="button" type="submit" value="Save">
@@ -43,8 +48,9 @@
     <span id="show_tasks_button" href="" class="small-btn view_tasks">View Completed Tasks</span>
     <div id="completed_tasks_list" class="hide_list">
         {% for task in todoList.getCompletedTasks %}
-            <div class="task_item" task_id="{{ task.id }}">
+            <div class="task_item completed" task_id="{{ task.id }}">
                 <div>{{task.task_text}}</div>
+                <a href="{% url 'todo_list:deleteTask' todoList.id task.id %}" class="right_icon delete_icon" onclick="return confirm('Are you sure you want to delete this task?');"></a>
             </div>
         {% endfor %}
     </div>
