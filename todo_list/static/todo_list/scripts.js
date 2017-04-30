@@ -13,6 +13,12 @@ function countUnsavedCompletedTasks()
     return numChecked;
 }
 
+//------------------------------------------------------------------------------
+//
+//  Prompts user's to save changes to their to do list. Such as when they mark
+//  a task or tasks complete.
+//
+//------------------------------------------------------------------------------
 function addListNotifications()
 {
     var numUnsavedTasks = countUnsavedCompletedTasks();
@@ -32,6 +38,12 @@ function addListNotifications()
     }
 }
 
+//------------------------------------------------------------------------------
+//
+//  When called on the manage list page, this function will either show or hide
+//  the completed task list depending on the current state of the list.
+//
+//------------------------------------------------------------------------------
 function hideOrShowCompTasks()
 {
     if(document.getElementById("completed_tasks_list").classList.contains('hide_list'))

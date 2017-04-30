@@ -2,6 +2,11 @@
 from __future__ import unicode_literals
 from django.db import models
 
+#-------------------------------------------------------------------
+#
+#   To Do List Model
+#
+#-------------------------------------------------------------------
 class ToDoList(models.Model):
     title = models.CharField(max_length=150)
     pub_date = models.DateTimeField('date created')
@@ -15,7 +20,12 @@ class ToDoList(models.Model):
     def __str__(self):
         return self.title
         
-    
+
+#-------------------------------------------------------------------
+#
+#   Task Model, each Task belongs to a ToDoList
+#
+#-------------------------------------------------------------------    
 class Task(models.Model):
     todolist = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
     task_text = models.CharField(max_length=300)
