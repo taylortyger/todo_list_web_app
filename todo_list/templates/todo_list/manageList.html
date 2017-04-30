@@ -10,7 +10,7 @@
     <div id="task_list">
         <form id="add_new_task" action="{% url 'todo_list:addNewTask' todoList.id %}" method="post" autocomplete="off">
         {% csrf_token %}
-        <div class="newtask_text_wrapper">
+        <div class="wide_text_wrapper">
             <input type="text" name="newtask_text" placeholder="Add New Task...">
         </div>
         {% if todoList.task_set.last %}

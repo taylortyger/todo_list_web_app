@@ -1,3 +1,12 @@
+html, body, div, input[type=submit] {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
 html 
 {
     width: 100%;
@@ -6,7 +15,6 @@ html
 
 body 
 {
-    margin: 0px;
     background: white url("images/background.jpg") no-repeat right bottom;
     font-family: 'Amiko';
     font-size: 16px;
@@ -68,47 +76,19 @@ body
     color: red;
 }
 
-input
+.wide_text_wrapper, .fullwidth_text_wrapper
 {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box; 
-    padding: 10px;
-}
-
-.newtask_text_wrapper
-{
-    width: 90%;
     display: inline-block;
 }
 
-.newtask_text_wrapper input
+.wide_text_wrapper
+{
+    width: 90%;
+}
+
+.fullwidth_text_wrapper, .wide_text_wrapper input, .fullwidth_text_wrapper input
 {
     width: 100%;
-}
-
-.big-btn {
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  color: #ffffff;
-  font-size: 22px;
-  background: #3498db;
-  padding: 20px 25px 20px 25px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.big-btn:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
 }
 
 .home-cta
@@ -127,7 +107,7 @@ input
 .fitscreen
 {
     width: 100vw;
-    height: 80vh;
+    height: 92vh;
     min-height: 200px;
 }
 
@@ -136,4 +116,60 @@ input
     background: url("images/background_home.jpeg") no-repeat right bottom;
     background-size:cover;
     max-width: none;
+    float: left;
+}
+
+input
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box; 
+    padding: 10px;
+}
+
+input[type=submit]
+{
+    cursor: pointer;
+}
+
+.right_submit
+{
+    float: right;
+}
+
+.button, .big-btn, input[type=submit].button, input[type=submit].big-btn
+{
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #3498db;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover, .big-btn:hover, input[type=submit].button:hover, input[type=submit].big-btn:hover
+{
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+.button, input[type=submit].button
+{
+    font-size: 18px;
+    padding: 10px 40px;
+    margin-top: 10px;
+}
+
+.big-btn, input[type=submit].big-btn
+{
+  font-size: 22px;
+  padding: 20px 45px 20px 45px;
 }
