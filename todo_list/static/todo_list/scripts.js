@@ -18,8 +18,8 @@ function addListNotifications()
     var numUnsavedTasks = countUnsavedCompletedTasks();
     if(numUnsavedTasks > 0)
     {
-        document.getElementById("updateList_submit").setAttribute("value", "Mark " + numUnsavedTasks + " Task(s) Completed");
         document.getElementById("updateList_submit").style.display = 'block';
+        document.getElementById("save_changes_info").textContent = "You have (" + numUnsavedTasks + ") unsaved changes to your To Do List. Please save now!";
     }
     else
     {

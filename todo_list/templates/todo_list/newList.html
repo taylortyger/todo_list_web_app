@@ -9,7 +9,7 @@
     <form action="{% url 'todo_list:createList' %}" method="post">
     {% csrf_token %}
     <div class="fullwidth_text_wrapper">
-        <input type="text" name="list_title" id="list_title" placeholder="Enter a List Title..."/>
+        <input type="text" name="list_title" id="list_title" placeholder="Enter a List Title..." autofocus="autofocus" onFocus="this.select()">
     </div>
     <input class="right_submit button" type="submit" value="Create" />
     </form>

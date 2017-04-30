@@ -8,30 +8,42 @@
     
     {% if error_message %}<p class="error_message"><strong>{{ error_message }}</strong></p>{% endif %}
     <div id="task_list">
+        <form id="manage_list_form" action="{% url 'todo_list:updateList' todoList.id %}" method="post">
+        {% csrf_token %}
+        
+        {% for task in todoList.getCurrentTasks %}
+            <div class="task_item" task_id="{{ task.id }}">
+                <input class="complete_task_check" type="checkbox" name="task_completed" value="{{ task.id }}" onclick="addListNotifications()">
+                <div>{{task.task_text}}</div>
+                <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
+            </div>
+        {% endfor %}
+        <div id="updateList_submit" style="display: none;">
+            <p id="save_changes_info">You have unsaved changes to your To Do List. Please save now!</p>
+            <input class="button" type="submit" value="Save">
+        </div>
+        </form>
+    </div>
+    <div id="add_new_task_wrap">     
         <form id="add_new_task" action="{% url 'todo_list:addNewTask' todoList.id %}" method="post" autocomplete="off">
         {% csrf_token %}
         <div class="wide_text_wrapper">
-            <input type="text" name="newtask_text" placeholder="Add New Task...">
+            <input type="text" name="newtask_text" placeholder="Add New Task..." autofocus="autofocus" onFocus="this.select()">
         </div>
         {% if todoList.task_set.last %}
             <input type="hidden" name="newtask_priority" value="{{ todoList.task_set.last.priority|add:1 }}">
         {% else %}
             <input type="hidden" name="newtask_priority" value="0">
         {% endif %}
-        <input type="submit" value="Add Task">
-        </form>
-        <form id="manage_list_form" action="{% url 'todo_list:updateList' todoList.id %}" method="post">
-        {% csrf_token %}
-        
-        {% for task in todoList.getCurrentTasks %}
-            <div task_id="{{ task.id }}">
-                <input class="complete_task_check" type="checkbox" name="task_completed" value="{{ task.id }}" onclick="addListNotifications()">
-                <div style="display: inline;">{{task.task_text}}</div>
-                <input type="hidden" name="task_priority {{task.id}}" value="{{task.priority}}" >
-            </div>
-        {% endfor %}
-        <input id="updateList_submit" type="submit" value="Save Completed Task(s)" style="display: none;">
+        <input class="small-btn right_submit" type="submit" value="Add Task">
         </form>
     </div>
+</div>
+<div class="section">
+    {% for task in todoList.getCompletedTasks %}
+            <div class="task_item" task_id="{{ task.id }}">
+                <div>{{task.task_text}}</div>
+            </div>
+    {% endfor %}
 </div>
 {% endblock %}
