@@ -75,6 +75,7 @@ body
 .error_message
 {
     color: red;
+    font-weight: bold;
 }
 
 .wide_text_wrapper, .fullwidth_text_wrapper

@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <link href="{% static 'todo_list/style.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Amiko|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif|Source+Sans+Pro:300,400,700">
+    <link href="https://fonts.googleapis.com/css?family=Amiko%7CRaleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif%7CSource+Sans+Pro:300,400,700">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}To Do List{% endblock %}</title>
 </head>
@@ -17,8 +17,8 @@
     <div id="main-content">
         {% block content %}{% endblock %}
     </div>
+    <footer>
+        <script type="text/javascript" src="{% static 'todo_list/scripts.js' %}"></script>
+    </footer>
 </body>
-<footer>
-    <script type="text/javascript" src="{% static 'todo_list/scripts.js' %}"></script>
-</footer>
 </html>

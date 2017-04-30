@@ -1,17 +1,21 @@
 {% extends "todo_list/base.html" %}
 
-{% block title %}Create New To Do List{% endblock %}
+{% block title %}New To Do List{% endblock %}
 
 {% block content %}
+
+
 <div class="section">
     <h1>Choose a Title for Your To Do List...</h1>
-    {% if error_message %}<p class="error_message"><strong>{{ error_message }}</strong></p>{% endif %}
+    {% if error_message %}<p class="error_message">{{ error_message }}</p>{% endif %}
     <form action="{% url 'todo_list:createList' %}" method="post">
     {% csrf_token %}
     <div class="fullwidth_text_wrapper">
         <input type="text" name="list_title" id="list_title" placeholder="Enter a List Title..." autofocus="autofocus" onFocus="this.select()">
     </div>
-    <input class="right_submit button" type="submit" value="Create" />
+    <input class="right_submit button" type="submit" value="Create">
     </form>
 </div>
+
+
 {% endblock %}

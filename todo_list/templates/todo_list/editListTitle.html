@@ -3,8 +3,11 @@
 {% block title %}Edit Title | {{ todoList.title }}{% endblock %}
 
 {% block content %}
+
+
 <div class="section">
     <h3>Edit Title</h3>
+    {% if error_message %}<p class="error_message">{{ error_message }}</p>{% endif %}
     <form id="edit_title" action="{% url 'todo_list:updateTitle' todoList.id %}" method="post" autocomplete="off">
         {% csrf_token %}
         <div class="fullwidth_text_wrapper edit_task_wrapper">
@@ -14,4 +17,6 @@
     </form>
     <a class="cancel_edit small-btn" href="{% url 'todo_list:manageList' todoList.id %}">Cancel</a>
 </div>
+
+
 {% endblock %}
