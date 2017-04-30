@@ -184,6 +184,15 @@ input[type=submit]
     padding: 9px 10px;
 }
 
+.small-btn.view_tasks
+{
+    font-size: 12px;
+    padding: 3px 5px;
+    background: #fff;
+    color: #1A8EF3;
+    border: 1px solid #1A8EF3;
+}
+
 #add_new_task_wrap
 {
     margin-top: 50px;
@@ -234,4 +243,15 @@ input[type=submit]
 #updateList_submit input[type=submit].button:hover
 {
     background: #35BF61;
+}
+
+#show_tasks_button
+{
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.hide_list
+{
+    display: none;
 }

@@ -40,10 +40,13 @@
     </div>
 </div>
 <div class="section">
-    {% for task in todoList.getCompletedTasks %}
+    <span id="show_tasks_button" href="" class="small-btn view_tasks">View Completed Tasks</span>
+    <div id="completed_tasks_list" class="hide_list">
+        {% for task in todoList.getCompletedTasks %}
             <div class="task_item" task_id="{{ task.id }}">
                 <div>{{task.task_text}}</div>
             </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

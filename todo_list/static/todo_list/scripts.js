@@ -26,3 +26,19 @@ function addListNotifications()
         document.getElementById("updateList_submit").style.display = 'none';
     }
 }
+
+function hideOrShowCompTasks()
+{
+    if(document.getElementById("completed_tasks_list").classList.contains('hide_list'))
+    {
+        document.getElementById("show_tasks_button").textContent = "Hide Completed Tasks";
+    }
+    else
+    {
+        document.getElementById("show_tasks_button").textContent = "Show Completed Tasks";
+    }
+    document.getElementById("completed_tasks_list").classList.toggle('hide_list'); 
+}
+
+
+document.getElementById("show_tasks_button").addEventListener("click", hideOrShowCompTasks, false);
