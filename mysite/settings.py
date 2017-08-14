@@ -25,7 +25,7 @@ SECRET_KEY = 'shxop(9cssrz%nqd23*-_)i7h8=iyeqv^nb-ri91hrtrp057am'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['todo-list-web-app-taylortyg.c9users.io']
+ALLOWED_HOSTS = ['todo-list-web-app-taylortyg.c9users.io', 'todo-list-web-app-archive-taylortyg.c9users.io']
 
 
 # Application definition
